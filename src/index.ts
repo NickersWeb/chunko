@@ -1,3 +1,20 @@
+const fileLastIndex = (fileSize: number, chunkSize: number) => {
+    return (fileSize / chunkSize);
+}
+
+export enum UploadFileChunkState {
+    BEGIN_CHUNKING,
+    START,
+    CHUNKING,
+    ERROR,
+    FINISH
+}
+
+export enum ChunkOutput {
+    DataURL,
+    Blob
+}
+
 export const chunko = (file: File,
     settings: Settings,
     endPoint: (chunk: string | Blob, index: number) => Promise<any>,
@@ -8,10 +25,10 @@ export const chunko = (file: File,
         onLoadEnd(UploadFileChunkState.ERROR, new Error('File does not exist.'));
     }
 
-    let chunk_size = settings.chunkSizeMB * 1048576;
+    const chunkSizeOutter = settings.chunkSizeMB * 1048576;
 
     //getting the file size so that we can use it for loop statement
-    let size = file.size;
+    const size = file.size;
 
     try {
 
@@ -35,12 +52,11 @@ export const chunko = (file: File,
             if (index < size) {
 
                 //slice the file by specifying the index(chunk size)
-                let blob = f.slice(set, set + chunkSize);
+                const blob = f.slice(set, set + chunkSize);
 
                 switch (settings.chunkOutput) {
-                    case ChunkOutput.DataURL:
-
-                        let reader = new FileReader();
+                    case ChunkOutput.DataURL: {
+                        const reader = new FileReader();
                         reader.readAsDataURL(blob);
 
                         reader.onloadend = (e) => {
@@ -58,6 +74,7 @@ export const chunko = (file: File,
 
                             }
                         }
+                    }
                         break;
                     case ChunkOutput.Blob:
                     default:
@@ -73,9 +90,9 @@ export const chunko = (file: File,
 
         }
 
-        onProgress(UploadFileChunkState.BEGIN_CHUNKING, 0, fileLastIndex(file.size, chunk_size));
+        onProgress(UploadFileChunkState.BEGIN_CHUNKING, 0, fileLastIndex(file.size, chunkSizeOutter));
 
-        func(file, chunk_size, 0, 0, 0, size);
+        func(file, chunkSizeOutter, 0, 0, 0, size);
 
     } catch (e) {
         onLoadEnd(UploadFileChunkState.ERROR, e);
@@ -91,21 +108,4 @@ class Settings {
 
     chunkOutput: ChunkOutput
     chunkSizeMB: number
-}
-
-export enum ChunkOutput {
-    DataURL,
-    Blob
-}
-
-export enum UploadFileChunkState {
-    BEGIN_CHUNKING,
-    START,
-    CHUNKING,
-    ERROR,
-    FINISH
-}
-
-const fileLastIndex = (fileSize: number, chunkSize: number) => {
-    return (fileSize / chunkSize);
 }
