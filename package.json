@@ -1,0 +1,28 @@
+{
+  "name": "file-chunko",
+  "version": "1.0.0",
+  "description": "File chunking system for javascript.",
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "npx tsc",
+    "prepublish": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NickersWeb/chunko.git"
+  },
+  "keywords": [
+    "file",
+    "chunking",
+    "system"
+  ],
+  "author": "Nick Webber",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NickersWeb/chunko/issues"
+  },
+  "homepage": "https://github.com/NickersWeb/chunko#readme",
+  "devDependencies": {
+    "typescript": "^4.3.5"
+  }
+}
