@@ -1,9 +1,9 @@
 
 <h1 align="center">
   <br>
-  <a href="http://www.amitmerchant.com/electron-markdownify"><img src="https://raw.githubusercontent.com/amitmerchant1990/electron-markdownify/master/app/img/markdownify.png" alt="Markdownify" width="200"></a>
+<img src="https://raw.githubusercontent.com/NickersWeb/chunko/master/logo.png" alt="file-chunko" width="200">
   <br>
-  Markdownify
+  file-chunko
   <br>
 </h1>
 
@@ -20,13 +20,15 @@
   <a href="#license">License</a>
 </p>
 
-![screenshot](https://i.pinimg.com/originals/e6/87/59/e6875929a8777d7fec3ad35022486074.gif)
+<div align="center">
+<img alt="man slicing animation" height="250px" src="https://i.pinimg.com/originals/e6/87/59/e6875929a8777d7fec3ad35022486074.gif" />
+</div>
 
 ## Key Features
 
-- Chunk any file
-- Track progress
-- Choose any output
+- Any input/output.
+- See state of the file being chunked. e.g. Success, error, finished etc...
+- Callbacks for each state of file being chunked.
 
 ## How To Use
 
@@ -41,6 +43,19 @@ $ cd chunko
 
 # Install dependencies
 $ npm install
+
+```
+
+```
+import { chunko, ChunkOutput } from 'file-chunko';
+
+chunko(
+ file,
+ { chunkSizeMB: 8 , chunkOutput: ChunkOutput.DataURL },
+ (chunk, index) => console.log('endpoint to send chunk.'),
+ (state, index, total) => console.log('call back per every state change.'),
+ (state) => console.log('on finished callback.')
+);
 
 ```
 
