@@ -1,6 +1,6 @@
 {
   "name": "file-chunko",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "File chunking system for javascript.",
   "main": "./dist/index.js",
   "scripts": {
