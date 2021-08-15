@@ -1,7 +1,7 @@
 
 <h1 align="center">
   <br>
-  <a href="http://www.amitmerchant.com/electron-markdownify"><img src="https://raw.githubusercontent.com/amitmerchant1990/electron-markdownify/master/app/img/markdownify.png" alt="Markdownify" width="200"></a>
+<img src="https://raw.githubusercontent.com/NickersWeb/chunko/master/logo.png" alt="file-chunko" width="200">
   <br>
   Markdownify
   <br>
@@ -20,7 +20,9 @@
   <a href="#license">License</a>
 </p>
 
-![screenshot](https://i.pinimg.com/originals/e6/87/59/e6875929a8777d7fec3ad35022486074.gif)
+<div align="center">
+<img alt="man slicing animation" height="250px" src="https://i.pinimg.com/originals/e6/87/59/e6875929a8777d7fec3ad35022486074.gif" />
+</div>
 
 ## Key Features
 
