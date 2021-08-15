@@ -3,7 +3,7 @@
   <br>
 <img src="https://raw.githubusercontent.com/NickersWeb/chunko/master/logo.png" alt="file-chunko" width="200">
   <br>
-  Markdownify
+  file-chunko
   <br>
 </h1>
 
