@@ -26,9 +26,9 @@
 
 ## Key Features
 
-- Chunk any file
-- Track progress
-- Choose any output
+- Any input/output.
+- See state of the file being chunked. e.g. Success, error, finished etc...
+- Callbacks for each state of file being chunked.
 
 ## How To Use
 
